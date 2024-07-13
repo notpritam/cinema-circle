@@ -26,6 +26,7 @@ const config = {
         showRed: "#f84464",
         lightGray: "#f5f5f5",
         showBorder: "#e5e5e5",
+        showSubtitle: "#666666",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

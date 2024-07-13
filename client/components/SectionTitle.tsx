@@ -4,8 +4,8 @@ import React from "react";
 
 interface SectionTitleProps {
   title: string;
-  link: string;
-  linkText: string;
+  link?: string;
+  linkText?: string;
   className?: string;
   children?: React.ReactNode;
 }
@@ -20,9 +20,11 @@ function SectionTitle({
   return (
     <div className={cn("flex justify-between w-full items-center", className)}>
       <h2 className="text-3xl font-bold">{title}</h2>
-      <Link className="text-showRed" href={link}>
-        {linkText}
-      </Link>
+      {link && linkText && (
+        <Link className="text-showRed" href={link}>
+          {linkText}
+        </Link>
+      )}
     </div>
   );
 }
