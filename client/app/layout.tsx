@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import Header from "@/components/Header";
+import { AlertDialog } from "@/components/ui/alert-dialog";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,10 +29,12 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <div className="flex flex-col w-full">
-          <Header />
-          {children}
-        </div>
+        <AlertDialog>
+          <div className="flex flex-col w-full">
+            <Header />
+            {children}
+          </div>
+        </AlertDialog>
       </body>
     </html>
   );

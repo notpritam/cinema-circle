@@ -1,10 +1,22 @@
 import SectionTitle from "@/components/SectionTitle";
 import Image from "next/image";
-import PosterImage from "@/public/images/poster.jpeg";
 import BannerImage from "@/public/images/posters/banner.jpg";
 import LivePoster from "@/public/images/posters/live.jpg";
 import { Star } from "lucide-react";
 import Link from "next/link";
+import MovieComponent from "@/components/MovieComponent";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -18,31 +30,14 @@ export default function Home() {
           />
           <div className="lists">
             {Array.from({ length: 10 }).map((_, index) => (
-              <Link href={`/movie/${index}`} key={index}>
-                <div
-                  draggable={false}
-                  className="list flex flex-col gap-2 cursor-pointer select-none"
-                >
-                  <div className="rounded-lg overflow-clip shadow-sm">
-                    <Image
-                      src={PosterImage}
-                      alt="Movie Image"
-                      className=""
-                      draggable={false}
-                    />
-                    <div className="flex bg-black gap-2 items-center justify-start text-white p-4 py-2">
-                      <Star className="text-red-500" size={20} />{" "}
-                      <span className="font-light ">5.7/10 3.2K Votes</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold">Movie Title</h3>
-                    <span className="font-light text-showSubtitle">
-                      Action/Drama/Thriller
-                    </span>
-                  </div>
-                </div>
-              </Link>
+              <MovieComponent
+                key={index}
+                genre="Action/Adventure/Sci-Fi"
+                image={"/images/poster.jpeg"}
+                rating="9.5/10 3.2K Votes"
+                slug="1"
+                title="Movie Title"
+              />
             ))}
           </div>
         </div>

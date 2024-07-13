@@ -25,8 +25,10 @@ function Header() {
     <header className="flex flex-col">
       <div className="w-full  h-[64px] items-center justify-center flex">
         <div className="container py-4 flex gap-8 justify-between">
-          <div className="flex gap-8">
-            <Image src={logoImage} alt="logo" />
+          <div className="flex gap-8 items-center">
+            <Link href="/">
+              <Image src={logoImage} alt="logo" />
+            </Link>
             <div className="flex bg-white px-4 min-w-[400px] border-gray-300 border-[1px] rounded-sm">
               <Image src={searchImage} alt="logo" />
               <Input
