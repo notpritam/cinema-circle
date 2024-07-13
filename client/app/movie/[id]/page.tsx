@@ -3,6 +3,15 @@ import { Share, Star } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import PosterImage from "@/public/images/poster.jpeg";
+import SectionTitle from "@/components/SectionTitle";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 function Page({ params }: { params: { id: string } }) {
   console.log(params.id);
@@ -60,10 +69,10 @@ function Page({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-      <div className="w-full py-8">
+      <div className="w-full">
         <div className=" container ">
           <div className="max-w-[calc(100%-314px)] flex flex-col">
-            <div className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4 border-b-[1px] border-showBorder py-9 ">
               <span className="text-xl font-semibold">About the movie</span>
               <p>
                 In this sequel to the 1996 film Hindustani, Kamal Hassan
@@ -73,6 +82,91 @@ function Page({ params }: { params: { id: string } }) {
                 politicians in the country through videos on the internet.
               </p>
             </div>
+
+            <div className="flex flex-col py-9 border-b-[1px] border-showBorder">
+              <span className="text-xl font-semibold">Cast</span>
+
+              <div className="normal-scroll gap-6">
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <div
+                    className="flex flex-col gap-2 items-center py-2 "
+                    key={index}
+                  >
+                    <div className="rounded-full max-h-[120px] max-w-[120px] min-h-[120px] min-w-[120px]  overflow-clip shadow-sm">
+                      <Image
+                        src={PosterImage}
+                        alt="Movie Image"
+                        className="bg-cover h-full w-full"
+                        draggable={false}
+                      />
+                    </div>
+                    <div>
+                      <h3 className=" font-semibold">Actor Name</h3>
+                      <span className="font-light text-showSubtitle">
+                        Role Name
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col py-9 border-b-[1px] border-showBorder">
+              <span className="text-xl font-semibold">Crew</span>
+
+              <div className="normal-scroll gap-6">
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <div
+                    className="flex flex-col gap-2 items-center py-2 "
+                    key={index}
+                  >
+                    <div className="rounded-full max-h-[120px] max-w-[120px] min-h-[120px] min-w-[120px]  overflow-clip shadow-sm">
+                      <Image
+                        src={PosterImage}
+                        alt="Movie Image"
+                        className="bg-cover h-full w-full"
+                        draggable={false}
+                      />
+                    </div>
+                    <div>
+                      <h3 className=" font-semibold">Actor Name</h3>
+                      <span className="font-light text-showSubtitle">
+                        Role Name
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col py-9 border-b-[1px] border-showBorder">
+              <SectionTitle
+                title="Top Reviews"
+                link="/reviews/1"
+                linkText="1.7K Reviews"
+              />
+
+              <div className="normal-scroll gap-6">
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <>
+                    <Card key={index}>
+                      <CardHeader>
+                        <CardTitle>Card Title</CardTitle>
+                        <CardDescription>Card Description</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p>Card Content</p>
+                      </CardContent>
+                      <CardFooter>
+                        <p>Card Footer</p>
+                      </CardFooter>
+                    </Card>
+                  </>
+                ))}
+              </div>
+            </div>
+
+            {/* Current Main Content */}
           </div>
         </div>
       </div>
