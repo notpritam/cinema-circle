@@ -25,6 +25,7 @@ import {
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import MovieComponent from "@/components/MovieComponent";
+import Link from "next/link";
 
 function Page({ params }: { params: { id: string } }) {
   console.log(params.id);
@@ -85,7 +86,9 @@ function Page({ params }: { params: { id: string } }) {
                         Select language and format
                       </span>
                     </div>
-                    <X size={20} />
+                    <AlertDialogCancel className="border-none">
+                      <X size={20} />
+                    </AlertDialogCancel>
                   </div>
 
                   <AlertDialogDescription>
@@ -110,9 +113,11 @@ function Page({ params }: { params: { id: string } }) {
                       {["2D", "3D", "IMAX 2D", "IMAX 3D", "4DX", "Hindi"].map(
                         (item, index) => (
                           <>
-                            <div className="bg-white text-showRed border-[1px] px-2 rounded-[10px]  py-1">
-                              <span className="">{item}</span>
-                            </div>
+                            <Link href={`/buytickets/${params.id}`}>
+                              <div className="bg-white text-showRed border-[1px] px-2 rounded-[10px]  py-1">
+                                <span className="">{item}</span>
+                              </div>
+                            </Link>
                           </>
                         )
                       )}

@@ -21,6 +21,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
         showRed: "#f84464",
