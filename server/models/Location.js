@@ -2,20 +2,25 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const crewSchema = new Schema(
+const locationSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-    image: {
+    city: {
       type: String,
       required: true,
     },
-    bio: String,
-    dateOfBirth: Date,
-    nationality: String,
-    role: {
+    state: {
+      type: String,
+      required: true,
+    },
+    country: {
+      type: String,
+      required: true,
+    },
+    zipCode: {
       type: String,
       required: true,
     },
@@ -23,5 +28,5 @@ const crewSchema = new Schema(
   { timestamps: true }
 );
 
-const Crew = model("Crew", crewSchema);
-export default Crew;
+const Location = model("Location", locationSchema);
+export default Location;
